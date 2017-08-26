@@ -1,0 +1,23 @@
+version: '3' 
+services:
+  mysql-5:
+    image: openkbs/mysql-5
+    build:
+      context: ./Dockerfile
+    container_name: mysql-5
+    environment:
+      - USER_ID=${USER_ID:-1000}
+      - GROUP_ID=${GROUP_ID:-1000}
+      - MYSQL_DATABASE=myDB
+      - MYSQL_USER=${MYSQL_USER:-user1}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-password}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-password}
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    env_file:
+      - ./docker.env
+    volumes:
+      - ${HOME}/.mysql:${HOME}/.mysql
+      - ${HOME}/data-docker/mysql/workspace:${HOME}/workspace
