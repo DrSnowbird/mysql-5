@@ -63,7 +63,7 @@ MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-password}
 MYSQL_USER=${MYSQL_USER:-user1}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-password}
 
-docker run -it --rm \
+docker run -d --rm \
     --name=${instanceName} \
     -p ${local_docker_port1}:${docker_port1} \
     -v ${local_docker_data1}:${docker_volume_data1} \
