@@ -3,7 +3,8 @@ services:
   mysql-5:
     image: openkbs/mysql-5
     build:
-      context: ./Dockerfile
+      context: .
+      dockerfile: Dockerfile
     container_name: mysql-5
     environment:
       - USER_ID=${USER_ID:-1000}
